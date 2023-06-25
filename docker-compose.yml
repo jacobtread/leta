@@ -1,0 +1,29 @@
+version: "3"
+services:
+  # Database service
+  database:
+    image: "postgres"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=panel
+    volumes:
+      - database-data:/var/lib/postgresql/data
+  # Database management UI
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8020:8020
+  # SMTP Mailing service
+  mail:
+    image: "mailhog/mailhog"
+    ports:
+      # SMTP
+      - 1025:1025
+      # HTTP
+      - 8025:8025
+volumes:
+  database-data:
