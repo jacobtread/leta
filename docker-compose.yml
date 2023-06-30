@@ -6,7 +6,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=user
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=panel
     volumes:
@@ -16,7 +16,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8020:8020
+      - 8020:8080
   # SMTP Mailing service
   mail:
     image: "mailhog/mailhog"

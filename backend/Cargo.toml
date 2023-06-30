@@ -7,6 +7,9 @@ authors = ["Jacobtread"]
 license = "MIT"
 publish = false
 
+[workspace]
+members = [".", "migration"]
+
 [dependencies]
 axum = "^0.6"
 hyper = { version = "^0.14", features = ["full"] }
@@ -25,6 +28,14 @@ dotenvy = "0.15"
 tower_governor = "0.0.4"
 thiserror = "1"
 validator = { version = "0.16", features = ["derive"] }
+
+sea-orm = { version = "^0", features = [
+    "sqlx-postgres",
+    "runtime-tokio-rustls",
+    "macros",
+] }
+
+
 [dependencies.log4rs]
 version = "1.2.0"
 default-features = false
